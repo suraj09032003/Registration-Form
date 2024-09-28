@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form id="registrationForm">
+<label for="username">Username:</label><br>
+<input type="text" id="username" name="username" required><br>
+<label for="email">Email:</label><br>
+<input type="email" id="email" name="email" required><br>  
+<label for="password">Password:</label><br>
+<input type="password" id="password" name="password" required minlength="6"><br><br>
+<input type="submit" value="Register">
+</form> 
+
+<script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    var username = document.getElementById('username').value;
+    var email = document.getElementById('email').value;
+    var password = document.getElementById('password').value;
+    if (!username || !email || !password) {
+        alert('Please fill in all fields.');
+        event.preventDefault(); // Prevent form submission
+        return;
+    }
+    if (password.length < 6) {
+        alert('Your password must be at least 6 characters long.');
+        event.preventDefault(); // Prevent form submission
+        return;
+    }
+    
+      // If we get here, all validations passed
+    alert('Registration successful!');
+    });
+</script>
+    
+
+</body>
+</html>
+
+
